@@ -1,7 +1,6 @@
 # this contains the lexical analyzer
 import re
 
-
 def raiseError(code):
     match code:
         case 1:
@@ -52,8 +51,10 @@ def tokenizer(lexeme):
 def lexicalAnalysis(line):
     # split the line into lexemes by splitting with space
     # then split by regex?
-    lexemes = re.split('(BTW .*$|\"[^\"]*\"|HAI|WAZZUP|I HAS A|[a-zA-Z]\w+|ITZ|BUHBYE|VISIBLE|OBTW|TLDR|KTHXBYE)', lexemes) 
-    lexemes = [name for name in lexemes if name.strip()] #this filters out the strings containing only whitespace
+    # splits first by groups of words
+    lexemes = re.split(r'(\"[^\"]*\"|I HAS A|IS NOW A|BOTH OF|BOTH SAEM|SUM OF|DIFF OF|PRODUKT OF|QUOSHUNT OF|MOD OF|BIGGR OF|SMALLR OF|BOTH OF|EITHER OF|WON OF|ANY OF|ALL OF|BOTH SAEM|O RLY\?|IM IN YR|IM OUTTA YR|HOW IZ I|IF U SAY SO|FOUND YR|I IZ|[a-zA-Z]\w+)', line)
+    #this filters out the strings containing only whitespace
+    lexemes = [name for name in lexemes if name.strip()]
     print(lexemes)
     
     # then run it through tokenizer?
