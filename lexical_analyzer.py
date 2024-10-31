@@ -39,6 +39,7 @@ def cleanCode(lines, lineLen):
     return [name for name in cleanedLines if name.strip()]
 
 def tokenizer(lexeme):
+    # this creates the symbol table
     # receive lexeme
     # run match case
     match lexeme:
